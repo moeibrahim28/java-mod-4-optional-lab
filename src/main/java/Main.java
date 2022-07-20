@@ -7,14 +7,14 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        System.out.print("BookName: ");
         String bookName = scanner.nextLine();
         Optional<String> optAuthor = Book.getAuthor(bookName);
 
         // write your code here
         optAuthor.map(Object::toString)
                 .ifPresentOrElse((value) -> System.out.println(bookName + " written by "+ value),
-                ()-> System.out.println(""));
+                ()-> System.out.println("Unknown"));
     }
 }
 
