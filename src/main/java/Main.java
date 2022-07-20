@@ -12,6 +12,9 @@ public class Main {
         Optional<String> optAuthor = Book.getAuthor(bookName);
 
         // write your code here
+        optAuthor.map(Object::toString)
+                .ifPresentOrElse((value) -> System.out.println(bookName + " written by "+ value),
+                ()-> System.out.println(""));
     }
 }
 
@@ -24,6 +27,7 @@ class Book {
         books.put("Designing Data-Intensive Applications", "Martin Kleppmann");
         books.put("Modern Java in Action", "Raoul-Gabriel Urma");
     }
+
 
     static Optional<String> getAuthor(String name) {
         return Optional.ofNullable(books.get(name));
