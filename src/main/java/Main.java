@@ -12,8 +12,7 @@ public class Main {
         Optional<String> optAuthor = Book.getAuthor(bookName);
 
         // write your code here
-        optAuthor.map(Object::toString)
-                .ifPresentOrElse((value) -> System.out.println(bookName + " written by "+ value),
+        optAuthor.ifPresentOrElse((value) -> System.out.println(bookName + " written by "+ value),
                 ()-> System.out.println("Unknown"));
     }
 }
